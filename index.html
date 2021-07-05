@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Java Website v1.0</title>
+</head>
+
+<body>
+    <canvas id="graph" width="800" height="500" style="position:relative; left:100px;"></canvas>
+    <script>
+   	//get canvas
+    var c = document.getElementById("graph");
+    var ctx = c.getContext("2d");
+
+    //draw graph showing stats and buttons to access other pages
+    var size = 250,
+        Xcenter = 400,
+        Ycenter = 250;
+    var stats = ["Basics", "Conditionals + Loops", "Classes", "Arrays + ArrayLists", "Recursion", "Inheritance"];
+    var buttons = [];
+
+    drawGraph();
+    drawStats([60,40,70,80,90,20]);
+
+    //Binding the click event on the canvas
+	c.addEventListener('click', function(evt) {
+	    var mousePos = getMousePos(c, evt);
+	    for (var i = buttons.length - 1; i >= 0; i--) {
+	    	console.log(stats[i] + " ");
+	    	if(isInside(mousePos,buttons[i])){
+	    		alert("You clicked " + stats[i]);
+	    		break;
+	    	}
+	    }
+	}, false);
+
+    function drawGraph() {
+        ctx.beginPath();
+        ctx.moveTo(Xcenter + size * Math.cos(0), Ycenter);
+        var offset = [
+            [-15, 25],
+            [-20, 25],
+            [-60, 10],
+            [-60, -10],
+            [0, -10],
+            [70, 30]
+        ];
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        for (var i = 1; i <= 6; i++) {
+        	//position of vertex
+            var x = Xcenter + size * Math.cos(i * 2 * Math.PI / 6);
+            var y = Ycenter + size * Math.sin(i * 2 * Math.PI / 6);
+            //width of text
+            var width = ctx.measureText(stats[i-1]).width;
+
+            //uses height of 25px as a general approximation
+            buttons.push({x:x + offset[i - 1][0] - width/2, y:y + offset[i - 1][1]-25, width:ctx.measureText(stats[i-1]).width, height:25});
+
+            //fill stats text and draws outside shape
+            ctx.fillText(stats[i - 1], x + offset[i - 1][0], y + offset[i - 1][1]);
+            ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        //draw inner lines
+        ctx.beginPath();
+        ctx.moveTo(Xcenter + size * Math.cos(0), Ycenter);
+        for (var i = 1; i <= 6; i++) {
+            var x = Xcenter + size * Math.cos(i * 2 * Math.PI / 6);
+            var y = Ycenter + size * Math.sin(i * 2 * Math.PI / 6)
+            ctx.lineTo(x, y);
+            ctx.lineTo(Xcenter, Ycenter);
+            ctx.lineTo(x, y);
+        }
+        ctx.globalAlpha = 0.1;
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
+
+    function drawStats(values) {
+        ctx.beginPath();
+        ctx.moveTo(Xcenter + size * (values[i - 1] / 100), Ycenter);
+        for (var i = 1; i <= 6; i++) {
+            var x = Xcenter + (values[i - 1] / 100) * size * Math.cos(i * 2 * Math.PI / 6);
+            var y = Ycenter + (values[i - 1] / 100) * size * Math.sin(i * 2 * Math.PI / 6)
+            ctx.lineTo(x, y);
+        }
+        ctx.globalAlpha = 0.5;
+		ctx.fillStyle = "pink";
+        ctx.fill();
+    }
+
+    //Function to get the mouse position
+	function getMousePos(canvas, event) {
+	    var rect = canvas.getBoundingClientRect();
+	    return {
+	        x: event.clientX - rect.left,
+	        y: event.clientY - rect.top
+	    };
+	}
+	//Function to check whether a point is inside a rectangle
+	function isInside(pos, rect){
+		console.log(pos.x + " " + pos.y + " " + rect.x + " " + rect.y + " " + rect.width + " " + rect.height);
+	    return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y;
+	}
+    </script>
+</body>
+
+</html>
