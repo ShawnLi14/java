@@ -1,113 +1,137 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>Java Website v1.0</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Hello, world!</title>
 </head>
 
 <body>
-    <canvas id="graph" width="800" height="500" style="position:relative; left:100px;"></canvas>
-    <script>
-   	//get canvas
-    var c = document.getElementById("graph");
-    var ctx = c.getContext("2d");
+    <div class="row">
+        <div class="col-3 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" id="menu">
+        
+        </div>
+        <div class="col-9" id="main" style="height: 1000px">
+            <canvas id="graph" width="800" height="800" style="position:relative"></canvas>
+        </div>
+        <script type="text/javascript">
+        //load navbar via jQuery
+        $(document).ready(function(){
+	    		$('#menu').load('https://shawnli14.github.io/java/navbar.html');
+			});
+        </script>
+        <script>
+        //get canvas
+        var c = document.getElementById("graph");
+        var ctx = c.getContext("2d");
 
-    //draw graph showing stats and buttons to access other pages
-    var size = 250,
-        Xcenter = 400,
-        Ycenter = 250;
-    var stats = ["Basics", "Conditionals + Loops", "Classes", "Arrays + ArrayLists", "Recursion", "Inheritance"];
-    var buttons = [];
+        //draw graph showing stats and buttons to access other pages
+        var size = 250,
+            Xcenter = 400,
+            Ycenter = 300;
+        var stats = ["Basics", "Conditionals + Loops", "Classes", "Arrays + ArrayLists", "Recursion", "Inheritance"];
+        var buttons = [];
 
-    drawGraph();
-    drawStats([60,40,70,80,90,20]);
+        drawGraph();
+        drawStats([60, 40, 70, 80, 90, 20]);
 
-    //Binding the click event on the canvas
-	c.addEventListener('click', function(evt) {
-	    var mousePos = getMousePos(c, evt);
-	    for (var i = buttons.length - 1; i >= 0; i--) {
-	    	console.log(stats[i] + " ");
-	    	if(isInside(mousePos,buttons[i])){
-	    		alert("You clicked " + stats[i]);
-	    		break;
-	    	}
-	    }
-	}, false);
+        //Binding the click event on the canvas
+        c.addEventListener('click', function(evt) {
+            var mousePos = getMousePos(c, evt);
+            for (var i = buttons.length - 1; i >= 0; i--) {
+                console.log(stats[i] + " ");
+                if (isInside(mousePos, buttons[i])) {
+                    alert("You clicked " + stats[i]);
+                    break;
+                }
+            }
+        }, false);
 
-    function drawGraph() {
-        ctx.beginPath();
-        ctx.moveTo(Xcenter + size * Math.cos(0), Ycenter);
-        var offset = [
-            [-15, 25],
-            [-20, 25],
-            [-60, 10],
-            [-60, -10],
-            [0, -10],
-            [70, 30]
-        ];
-        ctx.font = "30px Arial";
-        ctx.textAlign = "center";
-        for (var i = 1; i <= 6; i++) {
-        	//position of vertex
-            var x = Xcenter + size * Math.cos(i * 2 * Math.PI / 6);
-            var y = Ycenter + size * Math.sin(i * 2 * Math.PI / 6);
-            //width of text
-            var width = ctx.measureText(stats[i-1]).width;
+        function drawGraph() {
+            ctx.beginPath();
+            ctx.moveTo(Xcenter + size * Math.cos(0), Ycenter);
+            var offset = [
+                [-15, 25],
+                [-20, 25],
+                [-60, 10],
+                [-60, -10],
+                [0, -10],
+                [70, 30]
+            ];
+            ctx.font = "30px Arial";
+            ctx.textAlign = "center";
+            for (var i = 1; i <= 6; i++) {
+                //position of vertex
+                var x = Xcenter + size * Math.cos(i * 2 * Math.PI / 6);
+                var y = Ycenter + size * Math.sin(i * 2 * Math.PI / 6);
+                //width of text
+                var width = ctx.measureText(stats[i - 1]).width;
 
-            //uses height of 25px as a general approximation
-            buttons.push({x:x + offset[i - 1][0] - width/2, y:y + offset[i - 1][1]-25, width:ctx.measureText(stats[i-1]).width, height:25});
+                //uses height of 25px as a general approximation
+                buttons.push({ x: x + offset[i - 1][0] - width / 2, y: y + offset[i - 1][1] - 25, width: ctx.measureText(stats[i - 1]).width, height: 25 });
 
-            //fill stats text and draws outside shape
-            ctx.fillText(stats[i - 1], x + offset[i - 1][0], y + offset[i - 1][1]);
-            ctx.lineTo(x, y);
+                //fill stats text and draws outside shape
+                ctx.fillText(stats[i - 1], x + offset[i - 1][0], y + offset[i - 1][1]);
+                ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = "#000000";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            //draw inner lines
+            ctx.beginPath();
+            ctx.moveTo(Xcenter + size * Math.cos(0), Ycenter);
+            for (var i = 1; i <= 6; i++) {
+                var x = Xcenter + size * Math.cos(i * 2 * Math.PI / 6);
+                var y = Ycenter + size * Math.sin(i * 2 * Math.PI / 6)
+                ctx.lineTo(x, y);
+                ctx.lineTo(Xcenter, Ycenter);
+                ctx.lineTo(x, y);
+            }
+            ctx.globalAlpha = 0.1;
+            ctx.strokeStyle = "#000000";
+            ctx.lineWidth = 1;
+            ctx.stroke();
         }
-        ctx.strokeStyle = "#000000";
-        ctx.lineWidth = 1;
-        ctx.stroke();
 
-        //draw inner lines
-        ctx.beginPath();
-        ctx.moveTo(Xcenter + size * Math.cos(0), Ycenter);
-        for (var i = 1; i <= 6; i++) {
-            var x = Xcenter + size * Math.cos(i * 2 * Math.PI / 6);
-            var y = Ycenter + size * Math.sin(i * 2 * Math.PI / 6)
-            ctx.lineTo(x, y);
-            ctx.lineTo(Xcenter, Ycenter);
-            ctx.lineTo(x, y);
+        function drawStats(values) {
+            ctx.beginPath();
+            ctx.moveTo(Xcenter + size * (values[i - 1] / 100), Ycenter);
+            for (var i = 1; i <= 6; i++) {
+                var x = Xcenter + (values[i - 1] / 100) * size * Math.cos(i * 2 * Math.PI / 6);
+                var y = Ycenter + (values[i - 1] / 100) * size * Math.sin(i * 2 * Math.PI / 6)
+                ctx.lineTo(x, y);
+            }
+            ctx.globalAlpha = 0.5;
+            ctx.fillStyle = "pink";
+            ctx.fill();
         }
-        ctx.globalAlpha = 0.1;
-        ctx.strokeStyle = "#000000";
-        ctx.lineWidth = 1;
-        ctx.stroke();
-    }
 
-    function drawStats(values) {
-        ctx.beginPath();
-        ctx.moveTo(Xcenter + size * (values[i - 1] / 100), Ycenter);
-        for (var i = 1; i <= 6; i++) {
-            var x = Xcenter + (values[i - 1] / 100) * size * Math.cos(i * 2 * Math.PI / 6);
-            var y = Ycenter + (values[i - 1] / 100) * size * Math.sin(i * 2 * Math.PI / 6)
-            ctx.lineTo(x, y);
+        //Function to get the mouse position
+        function getMousePos(canvas, event) {
+            var rect = canvas.getBoundingClientRect(),
+                scaleX = canvas.width / rect.width,
+                scaleY = canvas.height / rect.height;
+
+            return {
+                x: (event.clientX - rect.left) * scaleX,
+                y: (event.clientY - rect.top) * scaleY
+            }
         }
-        ctx.globalAlpha = 0.5;
-		ctx.fillStyle = "pink";
-        ctx.fill();
-    }
-
-    //Function to get the mouse position
-	function getMousePos(canvas, event) {
-	    var rect = canvas.getBoundingClientRect();
-	    return {
-	        x: event.clientX - rect.left,
-	        y: event.clientY - rect.top
-	    };
-	}
-	//Function to check whether a point is inside a rectangle
-	function isInside(pos, rect){
-		console.log(pos.x + " " + pos.y + " " + rect.x + " " + rect.y + " " + rect.width + " " + rect.height);
-	    return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y;
-	}
-    </script>
+        //Function to check whether a point is inside a rectangle
+        function isInside(pos, rect) {
+            console.log(pos.x + " " + pos.y + " " + rect.x + " " + rect.y + " " + rect.width + " " + rect.height);
+            return pos.x > rect.x && pos.x < rect.x + rect.width && pos.y < rect.y + rect.height && pos.y > rect.y;
+        }
+        </script>
 </body>
 
 </html>
