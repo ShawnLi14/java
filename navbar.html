@@ -1,52 +1,68 @@
-<ul class="nav nav-pills flex-column mb-auto">
-                <li>
-                    <a href="/index.html" class="nav-link active text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                        </svg>
-                        Dashboard
-                    </a>
-                </li>
-                <hr>
-                <li>
-                    <a href="/basics/index.html" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                        </svg>
-                        Basics
-                    </a>
-                </li>
-                <li>
-                    <a href="/conditionalsloops/index.html" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                        </svg>
-                        Conditionals + Loops
-                    </a>
-                </li>
-                <li>
-                    <a href="/classes/index.html" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                        </svg>
-                        Classes
-                    </a>
-                </li>
-                <li>
-                    <a href="/arraysarraylists/index.html" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                        </svg>
-                        Arrays + ArrayLists
-                    </a>
-                </li>
-                <li>
-                    <a href="/recursion/index.html" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                        </svg>
-                        Recursion
-                    </a>
-                </li>
-                <li>
-                    <a href="/inheritance/index.html" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                        </svg>
-                        Inheritance
-                    </a>
-                </li>
-            </ul>
+<ul class="nav nav-pills nav-justified flex-column">
+    <li>
+        <a href="/index.html" class="nav-link active text-white">
+            <svg class="bi me-2" width="16" height="16">
+            </svg>
+            Dashboard
+        </a>
+    </li>
+    <hr>
+</ul>
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Basics
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-dark">
+                <ul class="nav nav-pills nav-justified flex-column mb-auto">
+                    <li>
+                        <a href="/basics/printing/index.html" class="nav-link active text-white">
+                            <svg class="bi me-2" width="16" height="16">
+                            </svg>
+                            Printing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/basics/variables/index.html" class="nav-link text-white">
+                            <svg class="bi me-2" width="16" height="16">
+                            </svg>
+                            Variables
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/basics/operators/index.html" class="nav-link text-white">
+                            <svg class="bi me-2" width="16" height="16">
+                            </svg>
+                            Operators
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Accordion Item #2
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-dark">
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Accordion Item #3
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-dark">
+            </div>
+        </div>
+    </div>
+</div>
