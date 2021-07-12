@@ -8,3 +8,21 @@ canvas {
   background-color: #212529;
   color: #fff;
 }
+#code{
+  background-color:#FFF;
+  padding-top:16px;
+  padding-bottom:16px;
+}
+#pcode{
+  background-color:#E0E0E0;
+  font-family: courier;
+  padding: 12px;
+  margin-bottom: 0px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+p{
+  margin-top:18px;
+  margin-bottom:18px;
+}

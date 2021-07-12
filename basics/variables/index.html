@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div id="container" class="row">
+        <div id="menu" class="col-3 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"></div>
+        <div id="main" class="col-9">
+            <h1 style="text-align:center; margin-top: 30px;">Variables</h1>
+            <h2>What are variables?</h2>
+            <p>Variables are one of the fundamental aspects of programming. A variable is a sort of container with a value inside of it. The usefulness of variables can be demonstrated through a simple program:</p>
+            <div class="container-fluid" id="code">
+                <h4>Example</h4>
+                <p id="pcode" class="rounded-3">System.out.println(x + 5);<br>System.out.println(x + 9);<br>System.out.println(x + 11);</p>
+            </div>
+            <p>Going through and changing the value of x for each line would be tedious, and using a variable is much easier. As your programs get more complex, the usefulness of variables becomes more obvious. This is especially true when variables that aren't basic numbers are involved. </p><br>
+            <h2>Data Types</h2>
+            <p>There are several types of variables in Java. These different types of variables are known as <strong>data types</strong>. There are 2 categories of data types: </p>
+            <table style="width:100%">
+                <tr>
+                    <th>Primitives</th>
+                    <th>Non-primitives</th>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Typically starts with a lowercase letter</li>
+                            <li>Doesn't have any functions(methods) built in</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Typically starts with an uppercase letter</li>
+                            <li>Has premade functions(methods) built in</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>int</li>
+                            <li>boolean</li>
+                            <li>double</li>
+                            <li>char</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>String</li>
+                            <li>(more will be shown later on, just keep in mind that they exist)</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table><br>
+            <h2>Primitives</h2>
+            <p>There are 8 types of primitives, but only the main 4 will be explored in this unit.</p>
+            <ul>
+                <li>int - A variable of type int can have the value of any integer from -(2<sup>32</sup>) to 2<sup>32</sup>. For programs dealing with integers less than around 2 billion, int can be used.</li>
+                <li>double - A variable of type double can have the value of any decimal from -(2<sup>1023</sup>) to 2<sup>1023</sup> and 15 significant decimal places. Double can be used for demical values and larger integer values, but takes more memory than other data types.</li>
+                <li>boolean - A boolean variable can only have 2 values, true or false. Booleans are often used in conjunction with if statements(explored in Conditionals + Loops). </li>
+                <li>char - The char variable can have the value of 1 character, which can be a letter, number, or some sort of symbol. Char values are defined between single quotation marks(''). Char is often overshadowed by String, but it has its uses. </li>
+            </ul>
+            <h2>Strings</h2>
+            <p>Strings are a "string" of chars, or basically a list of characters. A string is defined using double quotation marks(""). Strings are most often used for storing words, phrases, or even senteces.</p>
+            <h2>Creating Variables</h2>
+            <div class="container-fluid" id="code">
+                <h4>Syntax</h4>
+                <p id="pcode" class="rounded-3">(data type) (variable name) = (value);</p>
+            </div>
+            <div class="container-fluid" id="code">
+                <h4>Example</h4>
+                <p id="pcode" class="rounded-3">int x = 3;<br>double d = 3.2;<br>char firstLetter = 'b';<br>String name = "Java";</p>
+            </div>
+            <h2>Variables vs Literals</h2>
+            <p>A very important distinction in Java is the difference between variables and literals. </p>
+            <ul>
+                <li>Variable - a "containter" with a name, type, and value. The value can be accessed and changed through lines of code.
+                <li>Literal - A fixed value of a certain type. The values of primitive variables are always literals.</li>
+                <li>Examples:</li>
+                <ul>
+                	<li>int x = 2; (x is a variable with literal value 2)</li>
+                	<li>'8' (the literal char with value 8)</li>
+                	<li>String address = "123 Java Street"; (address is a variable, while "123 Java Street" is a literal)</li>
+                </ul>
+            </ul><br>
+            <h2>Examples</h2>
+            <table style="width:100%">
+                <tr>
+                    <th>Example</th>
+                    <th>Valid?</th>
+                </tr>
+                <tr>
+                    <td>int age = 25;</td>
+                    <td>yes(25 is a literal of type int)</td>
+                </tr>
+                <tr>
+                    <td>int x = '3';</td>
+                    <td>no(literal '3' is of type char, but variable x is of type int)</td>
+                </tr>
+                <tr>
+                    <td>String isGreater = false;</td>
+                    <td>no(literal false is of type boolean, while variable isGreater is of type String)</td>
+                </tr>
+            </table><br>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#menu').load('https://shawnli14.github.io/java/navbar.html');
+    });
+    </script>
+</body>
+
+</html>
