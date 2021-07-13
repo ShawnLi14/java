@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-justified flex-column">
     <li>
-        <a href="/java" class="nav-link active text-white">
+        <a href="/java" class="nav-link active text-white" id="dashboard">
             <svg class="bi me-2" width="16" height="16">
             </svg>
             Dashboard
@@ -19,21 +19,21 @@
             <div class="accordion-body bg-dark">
                 <ul class="nav nav-pills nav-justified flex-column mb-auto">
                     <li>
-                        <a href="/java/basics/printing" class="nav-link text-white">
+                        <a href="/java/basics/printing" class="nav-link text-white" id="1-printing">
                             <svg class="bi me-2" width="16" height="16">
                             </svg>
                             Printing
                         </a>
                     </li>
                     <li>
-                        <a href="/java/basics/variables" class="nav-link text-white">
+                        <a href="/java/basics/variables" class="nav-link text-white" id="1-variables">
                             <svg class="bi me-2" width="16" height="16">
                             </svg>
                             Variables
                         </a>
                     </li>
                     <li>
-                        <a href="/java/basics/operators" class="nav-link text-white">
+                        <a href="/java/basics/operators" class="nav-link text-white" id="1-operators">
                             <svg class="bi me-2" width="16" height="16">
                             </svg>
                             Operators
@@ -67,9 +67,8 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $(".nav .nav-link").on("click", function() {
-        $(".nav").find(".active").removeClass("active");
-        $(this).addClass("active");
-    });
-</script>
+
+$(".nav .nav-link").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).addClass("active");
+});
