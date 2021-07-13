@@ -17,16 +17,18 @@
 <body>
     <div class="row">
         <div class="col-3 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" id="menu">
-        
         </div>
         <div class="col-9" id="main" style="height: 1000px">
             <canvas id="graph" width="800" height="800" style="position:relative"></canvas>
         </div>
         <script type="text/javascript">
         //load navbar via jQuery
-        $(document).ready(function(){
-	    		$('#menu').load('https://shawnli14.github.io/java/navbar.html');
-			});
+	        $(document).ready(function() {
+	            $('#menu').load('https://shawnli14.github.io/java/navbar.html');
+	        });
+	    //set dashboard to active nav-link
+	        $(".nav").find(".active").removeClass("active");
+	        $('#dashboard').addClass('active');
         </script>
         <script>
         //get canvas
