@@ -26,3 +26,6 @@ p{
   margin-top:18px;
   margin-bottom:18px;
 }
+#pageID {
+  display: none;
+}
