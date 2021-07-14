@@ -26,9 +26,12 @@
 	        $(document).ready(function() {
 	            $('#menu').load('https://shawnli14.github.io/java/navbar.html');
 	        });
+
 	    //set dashboard to active nav-link
-	        $(".nav").find(".active").removeClass("active");
-	        $('#dashboard').addClass('active');
+	    setTimeout(function(){
+		 $(".nav-link").removeClass("active");
+		 $("#dashboard").addClass("active");
+		}, 300);
         </script>
         <script>
         //get canvas
