@@ -24,7 +24,11 @@
             <h2>Basic Printing</h2>
             <br>
             <p>While reading in something from the console is difficult, printing to the console is quite easy.</p>
-            <strong>System.out.print("Hello World!");</strong>
+            <div class="container-fluid" id="code">
+                <h4>Syntax</h4>
+                <p id="pcode" class="rounded-3">System.out.print("&lt;text&gt;")</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">Prints out the text between the quotation marks.</p>
+            </div>
             <br><br>
             <p>This line of code will print Hello World! to the console. This code will print any string of characters in between the quotation marks.</p>
             <h2>Printing New Lines</h2>
@@ -32,7 +36,7 @@
             <p>Using the System.out.print(""); line multiple times will result in all the text being printed on the same line. Using System.out.println("") will instead print a new line after your text. Observe some examples below:</p>
             <table style="width:100%">
                 <tr>
-                    <th>Code  </th>
+                    <th>Code </th>
                     <th>Output</th>
                 </tr>
                 <tr>
@@ -56,8 +60,13 @@
     $(document).ready(function() {
         $('#menu').load('https://shawnli14.github.io/java/navbar.html');
         $(".nav").find(".active").removeClass("active");
-		$('#1-printing').addClass('active');
+        $('#1-printing').addClass('active');
     });
+    //set dashboard to active nav-link
+    setTimeout(function() {
+        $(".nav-link").removeClass("active");
+        $('#1-printing').addClass('active');
+    }, 300);
     </script>
 </body>
 
