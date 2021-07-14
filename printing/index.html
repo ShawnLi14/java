@@ -36,7 +36,7 @@
             <p>Using the System.out.print(""); line multiple times will result in all the text being printed on the same line. Using System.out.println("") will instead print a new line after your text. Observe some examples below:</p>
             <table style="width:100%">
                 <tr>
-                    <th>Code  </th>
+                    <th>Code </th>
                     <th>Output</th>
                 </tr>
                 <tr>
@@ -60,12 +60,12 @@
     $(document).ready(function() {
         $('#menu').load('https://shawnli14.github.io/java/navbar.html');
         $(".nav").find(".active").removeClass("active");
-		$('#1-printing').addClass('active');
+        $('#1-printing').addClass('active');
     });
     //set dashboard to active nav-link
-    setTimeout(function(){
-     	$(".nav").find(".active").removeClass("active");
-       $('#1-printing').addClass('active');
+    setTimeout(function() {
+        $(".nav-link").removeClass("active");
+        $('#1-printing').addClass('active');
     }, 300);
     </script>
 </body>
