@@ -32,9 +32,16 @@ p{
 #menu{
   height:100%; 
   position: fixed;
+overflow-y: scroll;
 }
 #main{
   position: absolute;
   left: 100%;
     transform: translateX(-100%);
+}
+.sidebarItem{
+  background-color: #212529;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
 }
