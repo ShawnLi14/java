@@ -15,8 +15,10 @@
 </head>
 
 <body>
-    <div class="row">
+	
+    <div class="col-12 row">
         <div class="col-3 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" id="menu">
+
         </div>
         <div class="col-9" id="main" style="height: 1000px">
         	<p id="pageID">dashboard</p>
@@ -137,6 +139,8 @@
             console.log(pos.x + " " + pos.y + " " + rect.x + " " + rect.y + " " + rect.width + " " + rect.height);
             return pos.x > rect.x && pos.x < rect.x + rect.width && pos.y < rect.y + rect.height && pos.y > rect.y;
         }
+
+
         </script>
 </body>
 

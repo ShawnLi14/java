@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div id="container" class="col-12 row">
+        <div id="menu" class="col-3 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="height:100%; position: fixed"></div>
+        <div id="main" class="col-9">
+            <p id="pageID">2-conditionals</p>
+            <h1 style="text-align:center; margin-top: 30px;">Conditionals</h1>
+            <h2>If and Else</h2>
+            <div class="container-fluid" id="code">
+                <h4>Syntax</h4>
+                <p id="pcode" class="rounded-3">if(&lt;boolean&gt;){<br>&nbsp;<i>code</i><br>}</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">If the boolean is true, the code between the brackets runs.</p>
+            </div>
+            <p>You should be relatively familiar with the simple If statment. However, conditionals don't end at an If. When an else or an else if is added on, the code forms a chain and looks something like this:</p>
+            <div class="container-fluid" id="code">
+                <h4>Syntax</h4>
+                <p id="pcode" class="rounded-3">if(&lt;boolean&gt;){<br>&nbsp;<i>code1</i><br>}<br>else{<br>&nbsp;<i>code2</i><br>}</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">If the boolean is true, then code1 runs. If the boolean is false, then code2 runs.</p>
+                <p id="pcode" class="rounded-3">if(&lt;boolean1&gt;){<br>&nbsp;<i>code1</i><br>}<br>else if(&lt;boolean2&gt;){<br>&nbsp;<i>code2</i><br>}<br>else{<br>&nbsp;<i>code3</i><br>}</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">If the boolean1 is true, then code1 runs. If boolean1 is false and boolean2 is true, then code2 runs. If both boolean1 and boolean2 are false, then code3 runs.</p>
+            </div>
+            <p>Ifs follow these three rules:</p>
+            <ol>
+            	<li>START vs ADDON - START is a required statement to start a chain. An ADDON is something that can be added onto a chain, but isn't required for a chain to run.</li>
+            	<li>START - If: An If always starts the chain. An If can be followed by Else Ifs and Else, but not more Ifs because they form their own chains.</li>
+            	<li>ADDON - Else: An Else ends the chain. If an Else is added, no more conditionals may be added to a chain. However, and Else does not have to be added to a chain. Because Else is an ADDON, it does not have to be present for a chain to function properly.</li>
+            	<li>ADDON - Else If: An Else If can be added after either an If or another Else If. An Else If is just an If that runs if the If/Else If above it is false. Else If is the only conditional statement that can appear multiple times in the same chain. An Else If is an ADDON, meaning it is not required for a chain to run.</li>
+            </ol>
+            <div class="container-fluid" id="code">
+                <h4>Example</h4>
+                <p id="pcode" class="rounded-3">int x = 356625;<br>if(x > 999999){<br>&nbsp;System.out.print("x has more than 6 digits");<br>}<br>else if(x > 99999){<br>&nbsp;System.out.print("x has than 6 digits");<br>}<br>else if(x > 9999){<br>&nbsp;System.out.print("x has than 5 digits");<br>}<br>else{<br>&nbsp;System.out.print("x has 4 or less digits");<br>}</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">If you can understand this example, you have a pretty good understanding of how conditional statements work.</p>
+            </div>
+            <h2>Logical Operators</h2>
+            <p>Logical operators are essentially operators but for booleans.</p>
+            <h4>NOT</h4>
+            <div class="container-fluid" id="code">
+                <h4>Syntax</h4>
+                <p id="pcode" class="rounded-3">!&lt;boolean&gt;</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">NOT is denoted by an exclamation mark in front of a boolean. NOT reverses the value of a boolean; true turns to false, and false turns to true.</p><br>
+                <strong>Truth Table</strong>
+                <table style="width:20%">
+                	<tr>
+                		<th>x</th>
+                		<th>!x</th>
+                	</tr>
+                	<tr>
+                		<td>false</td>
+                		<td>true</td>
+                	</tr>
+                	<tr>
+                		<td>true</td>
+                		<td>false</td>
+                	</tr>
+                </table>
+            </div>
+            <h4>OR</h4>
+            <div class="container-fluid" id="code">
+                <h4>Syntax</h4>
+                <p id="pcode" class="rounded-3">&lt;boolean1&gt; || &lt;boolean2&gt;</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">OR takes two booleans and compares them. As seen in the truth table, OR returns true if at least one of the two input booleans are true.</p><br>
+                <strong>Truth Table</strong>
+                <table style="width:30%">
+                	<tr>
+                		<th>x</th>
+                		<th>y</th>
+                		<th>x || y</th>
+                	</tr>
+                	<tr>
+                		<td>true</td>
+                		<td>true</td>
+                		<td>true</td>
+                	</tr>
+                	<tr>
+                		<td>true</td>
+                		<td>false</td>
+                		<td>true</td>
+                	</tr>
+                	<tr>
+                		<td>false</td>
+                		<td>true</td>
+                		<td>true</td>
+                	</tr>
+                	<tr>
+                		<td>false</td>
+                		<td>false</td>
+                		<td>false</td>
+                	</tr>
+                </table>
+            </div>
+            <h4>AND</h4>
+            <div class="container-fluid" id="code">
+                <h4>Syntax</h4>
+                <p id="pcode" class="rounded-3">&lt;boolean1&gt; && &lt;boolean2&gt;</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">AND is similar to OR. AND only returns true if both booleans are true, and otherwise returns false.</p><br>
+                <strong>Truth Table</strong>
+                <table style="width:30%">
+                	<tr>
+                		<th>x</th>
+                		<th>y</th>
+                		<th>x && y</th>
+                	</tr>
+                	<tr>
+                		<td>true</td>
+                		<td>true</td>
+                		<td>true</td>
+                	</tr>
+                	<tr>
+                		<td>true</td>
+                		<td>false</td>
+                		<td>false</td>
+                	</tr>
+                	<tr>
+                		<td>false</td>
+                		<td>true</td>
+                		<td>false</td>
+                	</tr>
+                	<tr>
+                		<td>false</td>
+                		<td>false</td>
+                		<td>false</td>
+                	</tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="dttps://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sda384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#menu').load('https://shawnli14.github.io/java/navbar.html');
+    });
+    </script>
+</body>
+
+</html>

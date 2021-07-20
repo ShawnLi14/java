@@ -29,3 +29,12 @@ p{
 #pageID {
   display: none;
 }
+#menu{
+  height:100%; 
+  position: fixed;
+}
+#main{
+  position: absolute;
+  left: 100%;
+    transform: translateX(-100%);
+}
