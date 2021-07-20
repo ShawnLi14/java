@@ -88,7 +88,8 @@
 </div>
 <hr>
 <?php
-if(!isset($_SESSION)){
+session_start();
+if(!if(isset($_SESSION["currentUser"]))){
     echo '<a href="/login" class="nav-link text-white" id="loginsignup">
         <svg class="bi me-2" width="16" height="16">
         </svg>
