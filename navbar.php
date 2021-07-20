@@ -1,13 +1,7 @@
-<ul class="nav nav-pills nav-justified flex-column">
-    <li>
-        <a href="" class="nav-link text-white" id="dashboard">
-            <svg class="bi me-2" width="16" height="16">
-            </svg>
+<a href="/index.php" class="btn btn-secondary text-white sidebarItem" id="dashboard">
             Dashboard
         </a>
-    </li>
-    <hr>
-</ul>
+        <hr>
 <div class="accordion accordion-flush" id="subjectsDropdown" style="margin-bottom: auto">
     <div class="accordion-item">
         <h2 class="accordion-header" id="basicsHeader">
@@ -102,6 +96,15 @@ if(!isset($_SESSION)){
     </a>';
 }
 else{
-    echo '<p>Welcome ' + $_SESSION["currentUser"] + '</p>';
+    echo '<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle bg-dark sidebarItem" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Welcome ' + $_SESSION["currentUser"] + '!
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+    <li><a class="dropdown-item" href="/signout">Sign Out</a></li>
+  </ul>
+</div>';
 }
 ?>
